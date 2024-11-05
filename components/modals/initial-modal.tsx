@@ -1,4 +1,5 @@
 "use client"
+import axios from "axios"
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form"
@@ -18,6 +19,8 @@ import { Form,
  import { Input } from "../ui/input";
  import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { FileUpload } from "../file-upload";
 
 const formschema = z.object({
     name: z.string().min(1,{
@@ -35,6 +38,8 @@ export const InitialModal = () => {
     useEffect(() => {
         setisMounted(true)
     })
+    
+    const router = useRouter();
 
     const form =  useForm({
         resolver : zodResolver(formschema),
@@ -46,7 +51,15 @@ export const InitialModal = () => {
 
     const isLoading = form.formState.isSubmitting;
     const onSubmit = async (values: z.infer<typeof formschema>) => {
-        console.log(values);
+        try{
+            await axios.post("/api/servers",values);
+
+            form.reset();
+            router.refresh();
+            window.location.reload();
+        }catch(error){
+            console.log(error);
+        }
     }
 
     if(!isMounted){
@@ -68,7 +81,20 @@ export const InitialModal = () => {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <div className="space-y-8 px-6">
                             <div className="flex items-center justify-center text-center">
-                                image upload system
+                                <FormField 
+                                control={form.control}
+                                name = "imageUrl"
+                                render={({field}) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <FileUpload
+                                            //the endpoint props is used to define which type of data we want to upload like image for sever we use serveimage as we have defined it in core.ts
+                                             endpoint="serverImage"
+                                             value={field.value}
+                                             onChange = {field.onChange} />
+                                        </FormControl>
+                                    </FormItem>
+                                )} />  
                             </div>
 
                             <FormField 
