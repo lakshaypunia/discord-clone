@@ -25,6 +25,7 @@ export const NavigationItem = ({
         router.push(`/server/${id}`)
     }
 
+
     return(
         <ActionTooltip
         side="right"

@@ -1,11 +1,14 @@
 
 
 
-const ServerPage = () => {
+
+
+
+const Serverpage = () => {
 
     return <div>
-        server id page
+        this is the server page
     </div>
 }
 
-export default ServerPage
+export default Serverpage

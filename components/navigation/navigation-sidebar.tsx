@@ -1,3 +1,4 @@
+
 import { currentProfile } from "@/lib/current-profile"
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
@@ -12,6 +13,7 @@ export const NavigationSidebar = async() => {
 
     const profile = await currentProfile();
 
+
     if(!profile){
         return redirect("/")
     }
@@ -25,7 +27,7 @@ export const NavigationSidebar = async() => {
             }
         }
     })
-
+ 
 
     return (
     <div
