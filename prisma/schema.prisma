@@ -35,7 +35,7 @@ model Server {
   id String @id @default(uuid())
   name String
   imageUrl String @db.Text
-  invideCode String @db.Text
+  invideCode String @unique
 
   members Member[]
   channels Channel[]
