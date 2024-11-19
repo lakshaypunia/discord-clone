@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 
 
-export type ModalType = "createServer" | "invite" | "editServer";
+export type ModalType = "createServer" | "invite" | "editServer" | "Members";
 
 interface ModalData {
 

@@ -15,15 +15,6 @@ import { useState } from "react";
 import axios from "axios";
 
 
-const formschema = z.object({
-    name : z.string().min(1,{
-        message : "The name of the server cannot be empty" 
-    }),
-    imageUrl : z.string().min(1,{
-        message : "Image url for the server cannot be empty"
-    })
-})
-
 
 
 export const InviteModal = () => {
