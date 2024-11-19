@@ -21,7 +21,6 @@ import { Form,
  import { Button } from "../ui/button";
  import { FileUpload } from "../file-upload";
 
-
 const formschema = z.object({
     name : z.string().min(1,{
         message : "The name of the server cannot be empty" 
@@ -35,6 +34,8 @@ const formschema = z.object({
 
 export const CreateServerModal = () => {
 
+   
+
     const form = useForm({
         resolver: zodResolver(formschema),
         defaultValues : {
@@ -44,7 +45,7 @@ export const CreateServerModal = () => {
     })
     const isLoading = form.formState.isSubmitting;
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (values: any) => {
         try{
             const response = await axios.post("/api/server",values);
 
