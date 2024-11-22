@@ -13,7 +13,7 @@ const  MainLayout = async({
 
 }) => {
 
-    console.log("this layout is working")
+    
 
     return (
         <div className="h-full">
