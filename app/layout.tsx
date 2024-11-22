@@ -10,6 +10,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,7 +44,9 @@ export default function RootLayout({
         defaultTheme="dark"
         enableSystem={false}
         storageKey="discord_clone-theme">
+        <SocketProvider>
         {children}
+        </SocketProvider>
         </ThemeProvider>
       </body>
     </html>
