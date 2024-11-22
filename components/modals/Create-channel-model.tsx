@@ -29,6 +29,7 @@ import {
     SelectValue
  } from "../ui/select";
 import { ChannelType } from "@prisma/client";
+import { useEffect } from "react";
 
 const formschema = z.object({
     name : z.string().min(1,{
@@ -53,15 +54,23 @@ export const CreateChannelModal = () => {
 
     const isModalOpen = isOpen && type === "createChannel";
 
-    const { server }= data;
+    const { channelType }= data;
 
     const form = useForm({
         resolver: zodResolver(formschema),
         defaultValues : {
             name : "",
-            type : ChannelType.TEXT
+            type : channelType || ChannelType.TEXT
         }
     })
+
+    useEffect(() => {
+        if (channelType){
+            form.setValue("type",channelType)
+        }else {
+            form.setValue("type",ChannelType.TEXT)
+        }
+    },[channelType])
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: any) => {
