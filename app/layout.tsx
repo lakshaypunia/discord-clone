@@ -11,6 +11,7 @@ import {
 } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SocketProvider } from "@/components/providers/socket-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
     <html lang="en">
@@ -45,6 +46,7 @@ export default function RootLayout({
         enableSystem={false}
         storageKey="discord_clone-theme">
         <SocketProvider>
+        <ModalProvider />
         {children}
         </SocketProvider>
         </ThemeProvider>

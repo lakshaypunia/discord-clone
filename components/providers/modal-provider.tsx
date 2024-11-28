@@ -8,6 +8,7 @@ import { LeaveServerModal } from "../modals/leave-server-modal";
 import { DelelteServerModal } from "../modals/delete-server-modal";
 import { DelelteChannelModal } from "../modals/delete-channel-modal copy";
 import { EditChannelModal } from "../modals/edit-channel";
+import { MessageFileModal } from "../modals/message-file-modal";
 
 export const ModalProvider = () => {
 
@@ -32,6 +33,7 @@ export const ModalProvider = () => {
         <DelelteServerModal />
         <DelelteChannelModal />
         <EditChannelModal />
+        <MessageFileModal />
         </>
     )
 }
