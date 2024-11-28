@@ -12,6 +12,7 @@ import {
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SocketProvider } from "@/components/providers/socket-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,10 +46,12 @@ export default function RootLayout({
         defaultTheme="dark"
         enableSystem={false}
         storageKey="discord_clone-theme">
-        <SocketProvider>
-        <ModalProvider />
-        {children}
-        </SocketProvider>
+          <SocketProvider>
+            <ModalProvider />
+            <QueryProvider>
+              {children}
+            </QueryProvider>
+          </SocketProvider>
         </ThemeProvider>
       </body>
     </html>
