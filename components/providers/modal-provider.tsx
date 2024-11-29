@@ -6,9 +6,10 @@ import { MembersModal } from "../modals/members-modal";
 import { CreateChannelModal } from "../modals/Create-channel-model";
 import { LeaveServerModal } from "../modals/leave-server-modal";
 import { DelelteServerModal } from "../modals/delete-server-modal";
-import { DelelteChannelModal } from "../modals/delete-channel-modal copy";
+import { DelelteChannelModal } from "../modals/delete-channel-modal";
 import { EditChannelModal } from "../modals/edit-channel";
 import { MessageFileModal } from "../modals/message-file-modal";
+import { DelelteMessageModal } from "../modals/delete-message-modal";
 
 export const ModalProvider = () => {
 
@@ -34,6 +35,7 @@ export const ModalProvider = () => {
         <DelelteChannelModal />
         <EditChannelModal />
         <MessageFileModal />
+        <DelelteMessageModal />
         </>
     )
 }
