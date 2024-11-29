@@ -1,6 +1,6 @@
 "use client"
 import axios from "axios"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
@@ -66,6 +66,7 @@ export const EditServerModal = () => {
     },[server,form])
     const isLoading = form.formState.isSubmitting;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSubmit = async (values : any) => {
         try{
             const response = await axios.patch(`/api/server/${server?.id}`,values);

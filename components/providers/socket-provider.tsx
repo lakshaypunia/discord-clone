@@ -9,6 +9,7 @@ import {
 import { io as ClientIO} from "socket.io-client"
 
 type SocketContextType = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     socket : any | null;
     isConnected : boolean
 }
@@ -31,6 +32,7 @@ export const SocketProvider = ({
     const [ isConnected, setisconnected] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const socektInstance = new (ClientIO as any)(process.env.NEXT_PUBLIC_SITE_URL!,{
             path : "/api/socket/io",
             addTrailingSlash : false,

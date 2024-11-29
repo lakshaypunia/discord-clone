@@ -7,7 +7,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
 import { Dialog,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle} from "../ui/dialog"
@@ -71,6 +70,7 @@ export const EditChannelModal = () => {
     },[form , channel])
     const isLoading = form.formState.isSubmitting;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSubmit = async (values: any) => {
         try{
             const url = qs.stringifyUrl({

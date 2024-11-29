@@ -1,5 +1,4 @@
 "use client"
-import * as z from "zod"
 import { Dialog,
     DialogContent,
     DialogDescription,
@@ -8,28 +7,21 @@ import { Dialog,
     DialogTitle} from "../ui/dialog"
 
 import { useModal } from "@/hooks/use-modal-store";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { Check, Copy, RefreshCw } from "lucide-react";
-import { useOrigin } from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
 
-
-
 export const DelelteServerModal = () => {
 
-    const {onOpen , isOpen ,data ,  onClose , type, } = useModal();
+    const { isOpen ,data ,  onClose , type, } = useModal();
     const router = useRouter();
 
 
     const { server } = data;
     
     const [isloading,setisloading] = useState(false);
-
     const onClick = async () => {
         try{
             setisloading(true)

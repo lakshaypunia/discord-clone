@@ -23,8 +23,6 @@ export const ServerHeader = ({
     const isadmin = role === MemberRole.ADMIN;
     const isModerator = isadmin || role === MemberRole.MODERATOR;
 
-    console.log(isModerator);
-
 
 
     return (

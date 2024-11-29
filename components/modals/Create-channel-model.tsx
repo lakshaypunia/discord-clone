@@ -1,13 +1,12 @@
 "use client"
 import qs from "query-string"
 import axios from "axios"
-import { redirect, useParams, useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
 import { Dialog,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle} from "../ui/dialog"
@@ -73,6 +72,7 @@ export const CreateChannelModal = () => {
     },[channelType , form])
     const isLoading = form.formState.isSubmitting;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSubmit = async (values: any) => {
         try{
             const url = qs.stringifyUrl({

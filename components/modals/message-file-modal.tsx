@@ -30,7 +30,6 @@ const formschema = z.object({
     })
 })
 
-console.log("message element is triggered")
 
 export const MessageFileModal = () => {
 
